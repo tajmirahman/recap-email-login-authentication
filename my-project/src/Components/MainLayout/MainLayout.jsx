@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Header from './Header';
 
 const MainLayout = () => {
     return (
         <div >
-            <h1 className='text-center'>This is main layout page</h1>
+            <Header></Header>
             <Outlet></Outlet>
         </div>
     );
