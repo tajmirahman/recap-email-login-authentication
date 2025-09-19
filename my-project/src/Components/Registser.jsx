@@ -1,10 +1,19 @@
 import React from 'react';
 
 const Registser = () => {
+
+    const handleRegister=(e)=>{
+        e.preventDefault();
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+        console.log(email,password)
+    }
+
+
     return (
         <div className='w-3/12 mx-auto my-10'>
-            <h1 className='text-2xl text-center my-5'>This is Register Form</h1>
-            <form >
+            <h1 className='text-2xl text-center my-5'> Register Form</h1>
+            <form onSubmit={handleRegister}>
                 <label className="input validator">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
@@ -21,7 +30,7 @@ const Registser = () => {
                         </g>
                     </svg>
                     <input
-                        type="email"
+                        type="email" name='email'
                         required
                         placeholder="email"
                     />
@@ -42,7 +51,7 @@ const Registser = () => {
                         </g>
                     </svg>
                     <input
-                        type="password"
+                        type="password" name='password'
                         required
                         placeholder="password"
                     />
