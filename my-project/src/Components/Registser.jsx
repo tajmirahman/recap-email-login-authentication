@@ -4,7 +4,8 @@ import auth from '../../firebase.init';
 
 const Registser = () => {
 
-    const [errorMessage,setErrorMessage]= useState('')
+    const [errorMessage,setErrorMessage]= useState('');
+    const [success,setSuccess]=useState('');
 
     const handleRegister=(e)=>{
         e.preventDefault();
@@ -17,6 +18,7 @@ const Registser = () => {
         createUserWithEmailAndPassword(auth, email,password)
         .then((result)=>{
             console.log(result)
+            setSuccess('Account Create Successfully')
         })
         .catch((error)=>{
             console.log(error.message);
@@ -78,6 +80,9 @@ const Registser = () => {
 
             {
                 errorMessage && <h1 className='text-red-400'>{errorMessage}</h1>
+            }
+            {
+                success && <h1 className='text-green-400'>{success}</h1>
             }
         </div>
     );
