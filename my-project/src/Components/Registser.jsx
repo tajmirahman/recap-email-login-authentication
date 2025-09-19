@@ -2,28 +2,55 @@ import React from 'react';
 
 const Registser = () => {
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
-                </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <div className="card-body">
-                        <fieldset className="fieldset">
-                            <label className="label">Email</label>
-                            <input type="email" className="input" placeholder="Email" />
-                            <label className="label">Password</label>
-                            <input type="password" className="input" placeholder="Password" />
-                            <div><a className="link link-hover">Forgot password?</a></div>
-                            <button className="btn btn-neutral mt-4">Login</button>
-                        </fieldset>
-                    </div>
-                </div>
-            </div>
+        <div className='w-3/12 mx-auto my-10'>
+            <h1 className='text-2xl text-center my-5'>This is Register Form</h1>
+            <form >
+                <label className="input validator">
+                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g
+                            strokeLinejoin="round"
+                            strokeLinecap="round"
+                            strokeWidth="2.5"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <path
+                                d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
+                            ></path>
+                            <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                        </g>
+                    </svg>
+                    <input
+                        type="email"
+                        required
+                        placeholder="email"
+                    />
+                </label>
+                <label className="input validator my-5">
+                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g
+                            strokeLinejoin="round"
+                            strokeLinecap="round"
+                            strokeWidth="2.5"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <path
+                                d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
+                            ></path>
+                            <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                        </g>
+                    </svg>
+                    <input
+                        type="password"
+                        required
+                        placeholder="password"
+                    />
+                </label>
+
+                <button className="btn bg-info">Submit</button>
+            </form>
+
         </div>
     );
 };
