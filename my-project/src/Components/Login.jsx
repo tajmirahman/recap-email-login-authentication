@@ -1,10 +1,20 @@
 import React from 'react';
 
 const Login = () => {
+
+    const handleLogin=(e)=>{
+        e.preventDefault();
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+
+        console.log(email,password)
+    }
+
+
     return (
         <div className='w-3/12 mx-auto my-10'>
             <h1 className='text-2xl text-center my-5'> Login Form</h1>
-            <form >
+            <form onSubmit={handleLogin}>
                 <label className="input validator">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
