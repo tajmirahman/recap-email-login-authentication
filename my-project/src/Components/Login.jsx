@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import auth from '../../firebase.init';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 
 const Login = () => {
+
+    const [errorMessage, setErrorMessage]= useState('');
+    const [success, setSuccess]= useState('');
 
     const handleLogin=(e)=>{
         e.preventDefault();
         const email=e.target.email.value;
         const password=e.target.password.value;
 
-        console.log(email,password)
+        console.log(email,password);
+
+        setErrorMessage('')
+
+        signInWithEmailAndPassword(auth,email,password)
+        .then((result)=>{
+            console.log(result.user);
+            setSuccess('Account Successfully Logged In')
+        })
+        .catch((error)=>{
+            // console.log(error.code);
+            setErrorMessage(error.code);
+        })
+
     }
 
 
@@ -61,6 +80,12 @@ const Login = () => {
                 <button className="btn bg-info">Submit</button>
             </form>
 
+            {
+                errorMessage && <div className='text-rose-600'>{errorMessage}</div>
+            }
+            {
+                success && <div className='text-green-400'>{success}</div>
+            }
           
         </div>
     );
