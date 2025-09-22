@@ -3,6 +3,8 @@ import MainLayout from "./MainLayout/MainLayout";
 import Login from "./Login";
 import Registser from "./Registser";
 import Profile from "./Profile";
+import AnotherPage from "./AnotherPage";
+import Header from "./MainLayout/Header";
 
 
 const routes = createBrowserRouter([
@@ -17,13 +19,19 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Registser></Registser>
-            }
+            },
+
 
         ]
     },
     {
         path: 'profile',
         element: <Profile></Profile>
+    },
+    {
+        path: '/another',
+        element: <AnotherPage></AnotherPage>,
+        
     }
 ])
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const AnotherPage = () => {
     return (
         <div className="navbar bg-base-100 shadow-sm w-10/12 mx-auto">
             <div className="navbar-start">
@@ -24,18 +24,17 @@ const Header = () => {
                     <NavLink to={'/'}>Home</NavLink>
                     <NavLink to={'/login'}>Login</NavLink>
                     <NavLink to={'/register'}>Register</NavLink>
-                    <NavLink to={'/another'}>Another Page</NavLink>
-                    
+                
+
                 </ul>
             </div>
             <div className="navbar-end">
                 <a className="btn">Button</a>
             </div>
 
-           
+
         </div>
-        
     );
 };
 
-export default Header;
+export default AnotherPage;
