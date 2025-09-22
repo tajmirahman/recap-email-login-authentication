@@ -5,24 +5,25 @@ import Registser from "./Registser";
 import Profile from "./Profile";
 
 
-const routes=createBrowserRouter([
+const routes = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
-        children:[
+        children: [
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/register',
-                element:<Registser></Registser>
-            },
-            {
-                path:'profile',
-                element:<Profile></Profile>
+                path: '/register',
+                element: <Registser></Registser>
             }
+
         ]
+    },
+    {
+        path: 'profile',
+        element: <Profile></Profile>
     }
 ])
 
