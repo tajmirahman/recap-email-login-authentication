@@ -13,7 +13,8 @@ const Registser = () => {
         const password=e.target.password.value;
         // console.log(email,password)
 
-        setErrorMessage('')
+        setErrorMessage('');
+        setSuccess('');
 
         createUserWithEmailAndPassword(auth, email,password)
         .then((result)=>{
