@@ -1,9 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const AnotherPage = () => {
     return (
-        <div className="navbar bg-base-100 shadow-sm w-10/12 mx-auto">
+        <>
+        <div className="navbar bg-base-100 shadow-sm w-10/12 mx-auto ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -22,8 +23,8 @@ const AnotherPage = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-xl space-x-4">
                     <NavLink to={'/'}>Home</NavLink>
-                    <NavLink to={'/login'}>Login</NavLink>
-                    <NavLink to={'/register'}>Register</NavLink>
+                    <NavLink to={'signIn'}>Sign In</NavLink>
+                    <NavLink to={'signUp'}>Sign Up</NavLink>
                 
 
                 </ul>
@@ -32,8 +33,12 @@ const AnotherPage = () => {
                 <a className="btn">Button</a>
             </div>
 
+            
 
         </div>
+
+        <Outlet></Outlet>
+        </>
     );
 };
 

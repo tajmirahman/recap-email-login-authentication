@@ -5,6 +5,8 @@ import Registser from "./Registser";
 import Profile from "./Profile";
 import AnotherPage from "./AnotherPage";
 import Header from "./MainLayout/Header";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 
 const routes = createBrowserRouter([
@@ -13,11 +15,11 @@ const routes = createBrowserRouter([
         element: <MainLayout />,
         children: [
             {
-                path: '/login',
+                path: 'login',
                 element: <Login></Login>
             },
             {
-                path: '/register',
+                path: 'register',
                 element: <Registser></Registser>
             },
 
@@ -29,9 +31,18 @@ const routes = createBrowserRouter([
         element: <Profile></Profile>
     },
     {
-        path: '/another',
+        path: 'another',
         element: <AnotherPage></AnotherPage>,
-        
+        children:[
+            {
+                path:'signIn',
+                element:<SignIn></SignIn>
+            },
+            {
+                path:'signUp',
+                element:<SignUp></SignUp>
+            }
+        ]
     }
 ])
 
