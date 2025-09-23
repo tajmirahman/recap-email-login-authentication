@@ -76,13 +76,13 @@ const Login = () => {
                         </g>
                     </svg>
                     <input
-                        type={!setShowPassword ? 'text' : 'password'} name='password'
+                        type={showPassword ? 'text' : 'password'} name='password'
                         required
                         placeholder="password"
                     />
 
                     <div className='absolute right-4'>
-                        <FaEye className='text-lg' />
+                        <FaEye onClick={()=>setShowPassword(!showPassword)} className='text-lg cursor-pointer' />
                     </div>
 
                 </label>
