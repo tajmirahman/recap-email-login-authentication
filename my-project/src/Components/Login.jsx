@@ -79,6 +79,7 @@ const Login = () => {
                         placeholder="password"
                     />
                 </label>
+                <div className='mb-2'><a className="link link-hover">Forgot password?</a></div>
 
                 <button className="btn bg-info">Submit</button>
             </form>

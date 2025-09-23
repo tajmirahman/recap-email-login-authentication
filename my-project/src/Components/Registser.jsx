@@ -18,6 +18,11 @@ const Registser = () => {
         setErrorMessage('');
         setSuccess('');
 
+        if(password > 6){
+            setErrorMessage('Password must be at least 6 character!');
+            return;
+        }
+
         createUserWithEmailAndPassword(auth, email,password)
         .then((result)=>{
             console.log(result);
