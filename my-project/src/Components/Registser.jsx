@@ -1,39 +1,47 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import  { useState } from 'react';
+import { useState } from 'react';
 import auth from '../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 
 const Registser = () => {
 
-    const [errorMessage,setErrorMessage]= useState('');
-    const [success,setSuccess]=useState('');
-    const navigate=useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
+    const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
 
-    const handleRegister=(e)=>{
+    const handleRegister = (e) => {
         e.preventDefault();
-        const email=e.target.email.value;
-        const password=e.target.password.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
         // console.log(email,password)
 
         setErrorMessage('');
         setSuccess('');
 
-        if(password > 6){
+        const passwordRegex =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+            if(!passwordRegex.test(password)){
+                setErrorMessage('Password must contain at least 1 uppercase, 1 lowercase, 1 number, 1 special character and be 6+ characters long.');
+                return;
+            }
+
+        if (password > 6) {
             setErrorMessage('Password must be at least 6 character!');
             return;
         }
 
-        createUserWithEmailAndPassword(auth, email,password)
-        .then((result)=>{
-            console.log(result);
-            navigate('/login')
-            setSuccess('Account Create Successfully')
-        })
-        .catch((error)=>{
-            console.log(error.message);
-            const shortMsg = error.code.split("/")[1]; 
-            setErrorMessage(shortMsg);
-        })
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                console.log(result);
+                navigate('/login')
+                setSuccess('Account Create Successfully')
+            })
+            .catch((error) => {
+                console.log(error.message);
+                const shortMsg = error.code.split("/")[1];
+                setErrorMessage(shortMsg);
+            })
     }
 
 
@@ -78,7 +86,7 @@ const Registser = () => {
                         </g>
                     </svg>
                     <input
-                        type="password" name='password'
+                        type="text" name='password'
                         required
                         placeholder="password"
                     />
