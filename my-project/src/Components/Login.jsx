@@ -3,6 +3,7 @@ import auth from '../../firebase.init';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
@@ -82,7 +83,13 @@ const Login = () => {
                     />
 
                     <div className='absolute right-4'>
-                        <FaEye onClick={()=>setShowPassword(!showPassword)} className='text-lg cursor-pointer' />
+                        {
+                            showPassword ? <FaEyeSlash onClick={()=>setShowPassword(!showPassword)} className='text-lg cursor-pointer' />
+                            
+                            
+                            :
+                            <FaEye onClick={()=>setShowPassword(!showPassword)} className='text-lg cursor-pointer' />
+                        }
                     </div>
 
                 </label>
