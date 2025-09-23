@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import auth from '../../firebase.init';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { FaEye } from "react-icons/fa";
 
 
 const Login = () => {
 
-    const [errorMessage, setErrorMessage]= useState('');
-    const [success, setSuccess]= useState('');
-    const navigate=useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
+    const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
+    const [showPassword,setShowPassword]=useState(false);
 
-    const handleLogin=(e)=>{
+    const handleLogin = (e) => {
         e.preventDefault();
-        const email=e.target.email.value;
-        const password=e.target.password.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
-        console.log(email,password);
+        console.log(email, password);
 
         setErrorMessage('')
 
-        signInWithEmailAndPassword(auth,email,password)
-        .then((result)=>{
-            console.log(result.user);
-            navigate('/profile')
-            setSuccess('Account Successfully Logged In')
-        })
-        .catch((error)=>{
-            // console.log(error.code);
-            setErrorMessage(error.code);
-        })
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                console.log(result.user);
+                navigate('/profile')
+                setSuccess('Account Successfully Logged In')
+            })
+            .catch((error) => {
+                // console.log(error.code);
+                setErrorMessage(error.code);
+            })
 
     }
 
@@ -58,7 +60,7 @@ const Login = () => {
                         placeholder="email"
                     />
                 </label>
-                <label className="input validator my-5">
+                <label className="input validator my-5 relative">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
                             strokeLinejoin="round"
@@ -74,11 +76,17 @@ const Login = () => {
                         </g>
                     </svg>
                     <input
-                        type="password" name='password'
+                        type={!setShowPassword ? 'text' : 'password'} name='password'
                         required
                         placeholder="password"
                     />
+
+                    <div className='absolute right-4'>
+                        <FaEye className='text-lg' />
+                    </div>
+
                 </label>
+
                 <div className='mb-2'><a className="link link-hover">Forgot password?</a></div>
 
                 <button className="btn bg-info">Submit</button>
@@ -90,7 +98,7 @@ const Login = () => {
             {
                 success && <div className='text-green-400'>{success}</div>
             }
-          
+
         </div>
     );
 };
